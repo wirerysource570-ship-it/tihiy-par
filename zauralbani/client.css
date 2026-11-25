@@ -1,6 +1,6 @@
 :root { --paper:#faf7f1; --surface:#ede8de; --ink:#292e25; --muted:#56594e; --accent:#465634; --accent-dark:#303f26; --selected:#dce4cf; --line:#d7d6c8; }
 .brand { font-weight:750; letter-spacing:-.055em; }
-.brand-icon { border:0; width:34px; height:32px; background:url(mark.svg) center/contain no-repeat; }
+.brand-icon { border:0; width:44px; height:44px; border-radius:50%; background:url(vk-logo.jpg) center/contain no-repeat; }
 .brand-icon::after,.brand-icon::before { display:none; }
 .location { font-size:.86rem; font-weight:600; color:var(--accent); margin-bottom:16px; }
 .hero-photo img { object-position:50% 49%; filter:saturate(.87) contrast(1.045); }

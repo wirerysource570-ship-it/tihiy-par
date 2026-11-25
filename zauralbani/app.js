@@ -225,7 +225,7 @@ renderEstimate();
 byId("save-estimate").addEventListener("click", () => {
   const items = currentEstimate();
   const file = new Blob([
-    "\uFEFFЗАУРАЛБАНИ — предварительный расчёт\r\n\r\n",
+    "\uFEFFЗа Урал Бани — предварительный расчёт\r\n\r\n",
     ...items.map(({ label, price }) => `${label} — ${price ? money(price) : "включено"}\r\n`),
     `\r\nИтого: ${money(totalFor(items))}\r\n`,
     "Демо-цены. Доставка, фундамент и работы на участке считаются отдельно.\r\n"
@@ -233,7 +233,7 @@ byId("save-estimate").addEventListener("click", () => {
   const url = URL.createObjectURL(file);
   const link = document.createElement("a");
   link.href = url;
-  link.download = "ЗАУРАЛБАНИ — расчёт.txt";
+  link.download = "За Урал Бани — расчёт.txt";
   document.body.append(link);
   link.click();
   link.remove();
