@@ -85,7 +85,7 @@ function projectCard(project) {
     <article class="card">
       <button class="card-button" type="button" data-project="${projects.indexOf(project)}" aria-label="Подробнее о проекте «${project.name}»">
         <div class="card-media">
-          <img src="../assets/${project.image}.webp" alt="" loading="lazy" width="840" height="560">
+          <img src="photos/examples/${project.image}.webp" alt="" loading="lazy" width="840" height="560">
           <span class="card-tag">${season.tag}</span>
         </div>
         <div class="card-body">
@@ -291,10 +291,13 @@ grid.addEventListener("click", event => {
   motionGallery = undefined;
   activeProject = projects[Number(button.dataset.project)];
   const { name, capacity, season, image, size, description } = activeProject;
+  const source = ["hill", "cedar", "barrel"].includes(image)
+    ? { name: "Wooden Planet", url: "https://wooden-planet.ru/" }
+    : { name: "Fresh Баня", url: "https://freshbania.ru/foto" };
   byId("dialog-content").innerHTML = `
     <div class="project-gallery" id="project-gallery" role="group" aria-label="Фото и планировка">
       <div class="gallery-slide" data-slide="photo">
-        <img class="dialog-photo" src="../assets/${image}.webp" alt="Визуализация проекта «${name}»" width="840" height="560" draggable="false">
+        <img class="dialog-photo" src="photos/examples/${image}.webp" alt="Пример внешнего вида для планировки «${name}»" width="840" height="560" draggable="false">
       </div>
       <div class="gallery-slide plan-slide" data-slide="plan" hidden>
         ${planRooms(projectDetails[image].rooms)}
@@ -308,6 +311,7 @@ grid.addEventListener("click", event => {
       <h2 id="project-title">${name}</h2>
       <p class="card-info">${findOption(capacities, capacity).people} · ${squareMetres(size)}${projectDetails[image].rooms.deck ? " с террасой" : ""} · ${findOption(seasons, season).tag}</p>
       <p>${description}</p>
+      <p class="card-info">Фото для примера · <a href="${source.url}" target="_blank" rel="noopener">${source.name}</a></p>
       ${projectSpecifications(activeProject)}
       <p><strong>от ${money(projectPrice(activeProject))}</strong></p>
       <button class="button button-dark" type="button" data-build-project>Изменить комплектацию</button>
