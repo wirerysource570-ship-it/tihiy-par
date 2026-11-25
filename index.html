@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru" data-type="product" data-radius="soft" data-buttons="solid">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9f8">
+  <meta name="page-type" content="product">
+  <meta name="site-kind" content="other">
+  <meta name="description" content="Подберите проект бани для дачи, семьи или большой компании и рассчитайте свою комплектацию.">
+  <title>Тихий пар — бани для жизни за городом</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta property="og:title" content="Тихий пар — проекты загородных бань">
+  <meta property="og:description" content="12 проектов с планировками и расчёт стоимости вашей бани.">
+  <meta property="og:image" content="https://tihiy-par-banya-studio.vocalmacaw258.chatgpt.site/assets/forest.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="project-details.js" defer></script>
+  <script src="construction.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#top">К содержанию</a>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Тихий пар, на главную"><span class="brand-icon" aria-hidden="true"></span>Тихий пар</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Меню</button>
+      <nav id="navigation" class="navigation" aria-label="Основное меню">
+        <a href="#catalog">Проекты</a><a href="#builder">Конструктор</a><a href="#faq">Вопросы</a>
+      </nav>
+      <button class="button button-line header-pick" type="button" data-quiz>Подобрать баню</button>
+    </div>
+  </header>
+  <main id="top" tabindex="-1">
+    <section class="hero" data-enter aria-labelledby="hero-title">
+      <div class="shell wrap hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">Бани для своих</h1>
+          <p class="hero-lead">12 проектов для дачи и загородного дома. От компактной парилки на двоих до бани на 14 гостей.</p>
+          <button class="button hero-pick" id="hero-pick" type="button" data-quiz hidden>Открыть подбор</button>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/forest.webp" srcset="assets/forest-small.webp 820w, assets/forest.webp 1672w" sizes="(max-width: 620px) calc(100vw - 34px), 1400px" alt="Деревянная баня с тёплым светом в хвойном лесу" width="1672" height="941" fetchpriority="high">
+        </div>
+        <aside class="quiz" id="quiz" aria-labelledby="quiz-title">
+          <div class="quiz-head"><p id="quiz-title">Какую баню вы ищете?</p><button type="button" id="quiz-close" class="icon-button" aria-label="Закрыть подбор"></button></div>
+          <form id="quiz-form">
+            <fieldset><legend>На сколько человек?</legend><div class="quiz-options" id="quiz-capacity"></div></fieldset>
+            <fieldset><legend>Когда будете париться?</legend><div class="quiz-options" id="quiz-season"></div></fieldset>
+            <button class="button button-dark quiz-submit" type="submit">Показать подходящие проекты</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+    <section class="section shell wrap" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <h2 id="catalog-title">Проекты бань</h2>
+        <p>Откройте проект, чтобы посмотреть его планировку, площади помещений и материалы.</p>
+      </div>
+      <form id="filters" class="filters" aria-label="Фильтры каталога">
+        <div class="filter-selects"><label>Вместимость<select id="catalog-capacity"></select></label><label>Сезон<select id="catalog-season"></select></label></div>
+        <div class="filter-actions"><span id="catalog-count" role="status"></span><button type="reset" class="text-button" id="reset-filters">Сбросить</button></div>
+      </form>
+      <div id="project-grid" class="project-grid"></div>
+      <div class="catalog-more"><button id="catalog-more" class="button button-line" type="button">Показать ещё проекты</button></div>
+    </section>
+    <section class="builder-section" id="builder" aria-labelledby="builder-title">
+      <div class="shell wrap section">
+        <div class="section-heading">
+          <h2 id="builder-title">Построй свою баню</h2>
+          <p>Начните с вместимости. На площадке появится баня, а каждое дополнение изменит её облик и стоимость.</p>
+        </div>
+        <div class="builder-layout">
+          <figure class="build-preview">
+            <canvas id="build-scene" width="800" height="420" role="img" aria-label="Пустая площадка для бани"></canvas>
+            <figcaption><div><strong id="scene-title">Пустая площадка</strong><span id="scene-detail">Выберите вместимость</span></div><button type="button" id="clear-build" class="text-button" hidden>Начать заново</button></figcaption>
+          </figure>
+          <div class="build-settings">
+          <form id="builder-form" class="builder-form">
+            <fieldset><legend>Вместимость</legend><div class="build-options" id="builder-capacity"></div></fieldset>
+            <fieldset><legend>Сезонность</legend><div class="build-options" id="builder-season"></div></fieldset>
+            <fieldset><legend>Печь</legend><div class="build-options" id="builder-stove"></div></fieldset>
+            <fieldset><legend>Дополнения</legend><div class="build-extras" id="builder-extras"></div></fieldset>
+          </form>
+          <aside class="estimate" aria-label="Предварительный расчёт">
+            <div class="estimate-body">
+              <h3>Ваша комплектация</h3>
+              <p id="estimate-total" class="estimate-total" aria-live="polite" aria-atomic="true"></p>
+              <ul id="estimate-items" class="estimate-items"></ul>
+              <p class="estimate-note">Демо-цены. Доставка, фундамент и работы на участке считаются отдельно.</p>
+              <button id="save-estimate" class="button button-dark" type="button">Скачать расчёт</button>
+            </div>
+          </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section shell wrap faq" id="faq" aria-labelledby="faq-title">
+      <div>
+        <h2 id="faq-title">Частые вопросы</h2>
+        <details><summary>Как выбрать размер бани?</summary><p>Ориентируйтесь на число людей, которые будут париться одновременно. Для двоих достаточно компактной парной. Для встреч с друзьями пригодится отдельная комната отдыха.</p></details>
+        <details><summary>Чем летняя баня отличается от зимней?</summary><p>Для использования в мороз выбирайте утеплённый вариант. Он дольше удерживает тепло. Если нужна вода зимой, её подвод и слив стоит продумать вместе с планировкой.</p></details>
+        <details><summary>Что влияет на итоговую стоимость?</summary><p>Площадь, утепление, печь, остекление и дополнительные зоны. Доставка и подготовка участка зависят от места строительства.</p></details>
+        <button class="button button-line faq-action" type="button" data-quiz>Подобрать баню</button>
+      </div>
+      <div class="faq-photo"><img src="assets/ritual.webp" alt="Льняные полотенца, берёзовый веник и деревянный ковш" loading="lazy" width="840" height="560"></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <a class="brand" href="#top"><span class="brand-icon" aria-hidden="true"></span>Тихий пар</a>
+      <p>Пробная версия. Проекты и цены приведены для примера. Изображения созданы с помощью ИИ.</p>
+      <a href="#catalog">К проектам</a>
+    </div>
+  </footer>
+  <dialog id="project-dialog" aria-labelledby="project-title">
+    <button id="dialog-close" type="button" class="icon-button dialog-close" aria-label="Закрыть проект"></button>
+    <div id="dialog-content"></div>
+  </dialog>
+</body>
+</html>
