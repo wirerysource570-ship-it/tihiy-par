@@ -1,0 +1,23 @@
+:root { --paper:#faf7f1; --surface:#ede8de; --ink:#292e25; --muted:#56594e; --accent:#465634; --accent-dark:#303f26; --selected:#dce4cf; --line:#d7d6c8; }
+.brand { font-weight:750; letter-spacing:-.055em; }
+.brand-icon { border:0; width:34px; height:32px; background:url(mark.svg) center/contain no-repeat; }
+.brand-icon::after,.brand-icon::before { display:none; }
+.location { font-size:.86rem; font-weight:600; color:var(--accent); margin-bottom:16px; }
+.hero-photo img { object-position:50% 49%; filter:saturate(.87) contrast(1.045); }
+.hero-caption { position:absolute; bottom:18px; left:18px; padding:8px 13px; background:#263420e8; color:white; border-radius:5px; font-size:.86rem; }
+.hero-copy h1 { max-width:10ch; }
+.works-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px 20px; }
+.works-grid figure,#work-view figure { margin:0; }
+.work-photo { display:block; width:100%; padding:0; border:0; border-radius:10px; overflow:hidden; background:var(--surface); cursor:zoom-in; }
+.work-photo img { width:100%; aspect-ratio:4/3; object-fit:cover; filter:saturate(.88) contrast(1.035); }
+.works-grid figcaption { padding-top:8px; font-size:1.03rem; }
+#contacts .reviews-panel img { max-height:400px; object-position:50% 45%; }
+.channels a { margin-top:10px; display:inline-block; text-decoration:underline; }
+#work-view { padding:12px; max-width:94vw; border:0; border-radius:12px; background:var(--paper); }
+#work-view::backdrop { background:#20231ee0; }
+#work-view img { width:auto; height:auto; max-width:85vw; max-height:78svh; margin:auto; }
+#work-view figcaption { padding:8px 2px 0; }
+.photo-close { position:absolute; right:10px; top:10px; background:white; border:0; border-radius:50%; width:44px; height:44px; font-size:25px; }
+@media(max-width:850px){.works-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px;}}
+@media(max-width:450px){.works-grid{grid-template-columns:1fr;}.hero-caption{bottom:9px;left:9px;}.location{margin-bottom:8px;}}
+#work-view img, #contacts .reviews-panel img, .faq-photo img { filter:saturate(.88) contrast(1.035); }
